@@ -21,16 +21,22 @@ function loadScript(src: string, attrs: Record<string, string> = {}) {
 export function initAnalytics() {
   if (typeof window === 'undefined') return;
 
+  window.dataLayer = window.dataLayer || [];
+  window.gtag =
+    window.gtag ||
+    function gtag(...args: unknown[]) {
+      window.dataLayer?.push(args);
+    };
+
   if (GA_MEASUREMENT_ID) {
-    loadScript(`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag =
-      window.gtag ||
-      function gtag(...args: unknown[]) {
-        window.dataLayer?.push(args);
-      };
-    window.gtag('js', new Date());
-    window.gtag('config', GA_MEASUREMENT_ID);
+    const gaScriptSrc = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    const isConfiguredInHtml = Boolean(document.querySelector(`script[src="${gaScriptSrc}"]`));
+
+    if (!isConfiguredInHtml) {
+      loadScript(gaScriptSrc);
+      window.gtag('js', new Date());
+      window.gtag('config', GA_MEASUREMENT_ID);
+    }
   }
 
   if (PLAUSIBLE_DOMAIN) {
