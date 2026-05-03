@@ -5,10 +5,11 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
 
-  // ✅ Required for GitHub Pages
+  // Required for GitHub Pages
   base: '/CV/',
 
   build: {
+    emptyOutDir: true,
     rollupOptions: {
       output: {
         manualChunks: {
