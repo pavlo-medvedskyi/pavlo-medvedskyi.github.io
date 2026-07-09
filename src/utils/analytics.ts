@@ -1,3 +1,5 @@
+import { RESUME_FILE_NAME, RESUME_URL } from '../constants/resume';
+
 declare global {
   interface Window {
     dataLayer?: unknown[];
@@ -99,9 +101,9 @@ export function trackResumeDownload(source: string) {
   trackEvent('resume_download_click', { source });
   trackEvent('file_download', {
     source,
-    file_name: 'Medvedskiy_Pavlo_Resume.pdf',
+    file_name: RESUME_FILE_NAME,
     file_extension: 'pdf',
-    link_url: `${window.location.origin}${import.meta.env.BASE_URL}Medvedskiy_Pavlo_Resume.pdf`,
+    link_url: `${window.location.origin}${RESUME_URL}`,
   });
   trackFunnelStep('resume_download_click', { source });
 }

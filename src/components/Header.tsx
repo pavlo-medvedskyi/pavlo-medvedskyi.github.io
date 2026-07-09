@@ -7,6 +7,7 @@ import {
   MapPin,
   ShieldCheck,
 } from 'lucide-react';
+import { RESUME_FILE_NAME, RESUME_URL } from '../constants/resume';
 import { useLanguage } from '../context/LanguageContext';
 import { trackEvent, trackResumeDownload } from '../utils/analytics';
 
@@ -62,8 +63,8 @@ export function Header() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
               <a
-                href={`${import.meta.env.BASE_URL}Medvedskiy_Pavlo_Resume.pdf`}
-                download="Medvedskiy_Pavlo_Resume.pdf"
+                href={RESUME_URL}
+                download={RESUME_FILE_NAME}
                 onClick={() => trackResumeDownload('hero')}
                 className="inline-flex items-center justify-center rounded-lg border border-amber-200/30 bg-amber-200/10 px-5 py-3 text-sm font-semibold text-amber-100 hover:border-amber-200/60 hover:bg-amber-200/15 hover:text-amber-50"
               >

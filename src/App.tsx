@@ -8,6 +8,7 @@ import { useLanguage } from './context/LanguageContext';
 import { useDocumentLanguage } from './hooks/useDocumentLanguage';
 import { useEngagementAnalytics } from './hooks/useEngagementAnalytics';
 import { useRevealAnimation } from './hooks/useRevealAnimation';
+import { RESUME_FILE_NAME, RESUME_URL } from './constants/resume';
 import { trackResumeDownload } from './utils/analytics';
 
 const About = lazy(() => import('./components/About').then((m) => ({ default: m.About })));
@@ -41,8 +42,8 @@ function App() {
     trackResumeDownload('navigation');
 
     const link = document.createElement('a');
-    link.href = `${import.meta.env.BASE_URL}Medvedskiy_Pavlo_Resume.pdf`;
-    link.download = 'Medvedskiy_Pavlo_Resume.pdf';
+    link.href = RESUME_URL;
+    link.download = RESUME_FILE_NAME;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
