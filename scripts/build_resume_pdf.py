@@ -237,7 +237,7 @@ def build():
     flow.append(
         Paragraph(
             "Kharkiv, Ukraine | Medvedskiypa@gmail.com | t.me/Wisll | "
-            "linkedin.com/in/pavlo-medvedskyi-74231913b | pavlo-qa90.github.io/CV",
+            "linkedin.com/in/pavlo-medvedskyi-74231913b | pavlo-medvedskyi.github.io",
             styles["Contact"],
         )
     )

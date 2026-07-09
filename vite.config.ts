@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
 
-  // Required for GitHub Pages
-  base: '/CV/',
+  // Root path for the GitHub Pages user site.
+  base: '/',
 
   build: {
     emptyOutDir: true,

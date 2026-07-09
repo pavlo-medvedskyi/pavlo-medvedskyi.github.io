@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex justify-center space-x-6">
           <a
-            href="https://github.com/Pavlo-qa90"
+            href="https://github.com/pavlo-medvedskyi"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Profile"

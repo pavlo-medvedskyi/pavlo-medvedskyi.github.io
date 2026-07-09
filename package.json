@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://pavlo-qa90.github.io/CV/",
+  "homepage": "https://pavlo-medvedskyi.github.io/",
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/clean-dist.mjs",
