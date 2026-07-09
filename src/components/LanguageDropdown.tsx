@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { trackEvent } from '../utils/analytics';
 
 interface Language {
   code: 'en' | 'ua';
@@ -85,6 +86,12 @@ export function LanguageDropdown() {
         <button
           key={lang.code}
           onClick={() => {
+            if (lang.code !== language) {
+              trackEvent('language_change', {
+                from_language: language,
+                to_language: lang.code,
+              });
+            }
             setLanguage(lang.code);
             setIsOpen(false);
           }}

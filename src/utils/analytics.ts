@@ -8,6 +8,8 @@ declare global {
 
 const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-H166RLL0TD';
 const PLAUSIBLE_DOMAIN = import.meta.env.VITE_PLAUSIBLE_DOMAIN;
+const PAGE_TYPE = 'resume';
+let isAnalyticsInitialized = false;
 
 function loadScript(src: string, attrs: Record<string, string> = {}) {
   if (document.querySelector(`script[src="${src}"]`)) return;
@@ -20,6 +22,8 @@ function loadScript(src: string, attrs: Record<string, string> = {}) {
 
 export function initAnalytics() {
   if (typeof window === 'undefined') return;
+  if (isAnalyticsInitialized) return;
+  isAnalyticsInitialized = true;
 
   window.dataLayer = window.dataLayer || [];
   window.gtag =
@@ -30,13 +34,20 @@ export function initAnalytics() {
 
   if (GA_MEASUREMENT_ID) {
     const gaScriptSrc = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-    const isConfiguredInHtml = Boolean(document.querySelector(`script[src="${gaScriptSrc}"]`));
+    const isScriptLoaded = Boolean(document.querySelector(`script[src="${gaScriptSrc}"]`));
 
-    if (!isConfiguredInHtml) {
+    if (!isScriptLoaded) {
       loadScript(gaScriptSrc);
-      window.gtag('js', new Date());
-      window.gtag('config', GA_MEASUREMENT_ID);
     }
+
+    window.gtag('js', new Date());
+    window.gtag('config', GA_MEASUREMENT_ID, {
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: `${window.location.pathname}${window.location.search}`,
+      send_page_view: true,
+      transport_type: 'beacon',
+    });
   }
 
   if (PLAUSIBLE_DOMAIN) {
@@ -47,12 +58,20 @@ export function initAnalytics() {
 export function trackEvent(eventName: string, params: Record<string, string | number | boolean> = {}) {
   if (typeof window === 'undefined') return;
 
+  const eventParams = {
+    page_type: PAGE_TYPE,
+    page_path: `${window.location.pathname}${window.location.search}`,
+    language: document.documentElement.lang || 'en',
+    transport_type: 'beacon',
+    ...params,
+  };
+
   if (window.gtag) {
-    window.gtag('event', eventName, params);
+    window.gtag('event', eventName, eventParams);
   }
 
   if (window.plausible) {
-    const props = Object.fromEntries(Object.entries(params).map(([k, v]) => [k, String(v)]));
+    const props = Object.fromEntries(Object.entries(eventParams).map(([k, v]) => [k, String(v)]));
     window.plausible(eventName, { props });
   }
 }
@@ -72,4 +91,17 @@ export function trackFunnelStep(
     step_order: FUNNEL_STEP_ORDER[stepName],
     ...params,
   });
+}
+
+export function trackResumeDownload(source: string) {
+  if (typeof window === 'undefined') return;
+
+  trackEvent('resume_download_click', { source });
+  trackEvent('file_download', {
+    source,
+    file_name: 'Medvedskiy_Pavlo_Resume.pdf',
+    file_extension: 'pdf',
+    link_url: `${window.location.origin}${import.meta.env.BASE_URL}Medvedskiy_Pavlo_Resume.pdf`,
+  });
+  trackFunnelStep('resume_download_click', { source });
 }

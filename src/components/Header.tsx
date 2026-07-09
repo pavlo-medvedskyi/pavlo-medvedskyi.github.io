@@ -8,7 +8,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { trackEvent } from '../utils/analytics';
+import { trackEvent, trackResumeDownload } from '../utils/analytics';
 
 export function Header() {
   const { t } = useLanguage();
@@ -64,7 +64,7 @@ export function Header() {
               <a
                 href={`${import.meta.env.BASE_URL}Medvedskiy_Pavlo_Resume.pdf`}
                 download="Medvedskiy_Pavlo_Resume.pdf"
-                onClick={() => trackEvent('resume_download_click', { source: 'hero' })}
+                onClick={() => trackResumeDownload('hero')}
                 className="inline-flex items-center justify-center rounded-lg border border-amber-200/30 bg-amber-200/10 px-5 py-3 text-sm font-semibold text-amber-100 hover:border-amber-200/60 hover:bg-amber-200/15 hover:text-amber-50"
               >
                 {t('nav.resume')}

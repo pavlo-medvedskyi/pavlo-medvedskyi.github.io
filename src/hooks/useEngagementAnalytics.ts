@@ -9,8 +9,11 @@ export function useEngagementAnalytics() {
   useEffect(() => {
     const startTime = Date.now();
     const milestones = [30, 60, 120];
+    const scrollMilestones = [25, 50, 75, 90];
     const sentMilestones = new Set<number>();
-    const sessionKey = 'analytics_contact_seen';
+    const sentScrollMilestones = new Set<number>();
+    const sectionIds = ['about', 'experience', 'projects', 'tools', 'skills', 'open-to-work', 'contact'];
+    const trackedSections = new Set<string>();
 
     const intervalId = window.setInterval(() => {
       const elapsedSec = Math.floor((Date.now() - startTime) / 1000);
@@ -18,33 +21,54 @@ export function useEngagementAnalytics() {
       milestones.forEach((milestone) => {
         if (elapsedSec >= milestone && !sentMilestones.has(milestone)) {
           sentMilestones.add(milestone);
-          trackEvent('engagement_time', { seconds: milestone, page: 'resume' });
+          trackEvent('engagement_time', {
+            seconds: milestone,
+            engagement_time_msec: milestone * 1000,
+          });
         }
       });
     }, 5000);
 
-    const contactSection = document.getElementById('contact');
-    let contactObserver: IntersectionObserver | null = null;
+    const handleScroll = () => {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollableHeight <= 0) return;
 
-    if (contactSection) {
-      contactObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
+      const depth = Math.round((window.scrollY / scrollableHeight) * 100);
+      scrollMilestones.forEach((milestone) => {
+        if (depth >= milestone && !sentScrollMilestones.has(milestone)) {
+          sentScrollMilestones.add(milestone);
+          trackEvent('scroll_depth', { percent_scrolled: milestone });
+        }
+      });
+    };
 
-            const wasTracked = sessionStorage.getItem(sessionKey) === '1';
-            if (!wasTracked) {
-              sessionStorage.setItem(sessionKey, '1');
-              trackEvent('contact_section_view', { page: 'resume' });
-              trackFunnelStep('contact_section_view', { page: 'resume' });
-            }
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
 
-            contactObserver?.disconnect();
-          });
-        },
-        { threshold: 0.35 }
-      );
-      contactObserver.observe(contactSection);
+          const sectionId = entry.target.id;
+          if (!sectionId || trackedSections.has(sectionId)) return;
+
+          trackedSections.add(sectionId);
+          trackEvent('section_view', { section_id: sectionId });
+
+          if (sectionId === 'contact') {
+            trackEvent('contact_section_view');
+            trackFunnelStep('contact_section_view');
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    sectionIds.forEach((sectionId) => {
+      const section = document.getElementById(sectionId);
+      if (section) sectionObserver.observe(section);
+    });
+
+    if (window.scrollY > 0) {
+      handleScroll();
     }
 
     const handleVisibilityChange = () => {
@@ -52,15 +76,20 @@ export function useEngagementAnalytics() {
 
       const elapsedSec = Math.floor((Date.now() - startTime) / 1000);
       if (elapsedSec >= 5) {
-        trackEvent('engagement_session_end', { seconds: elapsedSec, page: 'resume' });
+        trackEvent('engagement_session_end', {
+          seconds: elapsedSec,
+          engagement_time_msec: elapsedSec * 1000,
+        });
       }
     };
 
+    window.addEventListener('scroll', handleScroll, { passive: true });
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       window.clearInterval(intervalId);
-      contactObserver?.disconnect();
+      sectionObserver.disconnect();
+      window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);

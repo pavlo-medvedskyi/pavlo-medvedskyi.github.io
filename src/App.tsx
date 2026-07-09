@@ -8,7 +8,7 @@ import { useLanguage } from './context/LanguageContext';
 import { useDocumentLanguage } from './hooks/useDocumentLanguage';
 import { useEngagementAnalytics } from './hooks/useEngagementAnalytics';
 import { useRevealAnimation } from './hooks/useRevealAnimation';
-import { trackEvent, trackFunnelStep } from './utils/analytics';
+import { trackResumeDownload } from './utils/analytics';
 
 const About = lazy(() => import('./components/About').then((m) => ({ default: m.About })));
 const Experience = lazy(() => import('./components/Experience').then((m) => ({ default: m.Experience })));
@@ -38,8 +38,7 @@ function App() {
 
   const openResume = (event: MouseEvent) => {
     event.preventDefault();
-    trackEvent('resume_download_click', { source: 'navigation' });
-    trackFunnelStep('resume_download_click', { source: 'navigation' });
+    trackResumeDownload('navigation');
 
     const link = document.createElement('a');
     link.href = `${import.meta.env.BASE_URL}Medvedskiy_Pavlo_Resume.pdf`;
