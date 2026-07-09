@@ -31,7 +31,7 @@ export function OpenToWork() {
   return (
     <section className="relative">
       <div className="relative z-10">
-        <div className="section-kicker">Hiring details</div>
+        <div className="section-kicker">{t('openToWork.kicker')}</div>
         <h2 className="section-title">{t('openToWork.title')}</h2>
 
         <div className="glass-panel p-6">

@@ -41,7 +41,7 @@ export function Tools() {
   return (
     <section className="relative">
       <div className="relative z-10">
-        <div className="section-kicker">QA toolkit</div>
+        <div className="section-kicker">{t('tools.kicker')}</div>
         <h2 className="section-title">{t('tools.title')}</h2>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

@@ -76,8 +76,8 @@ export function LanguageDropdown() {
         pointerEvents: 'auto',
       }}
       className="rounded-2xl overflow-hidden bg-[rgba(17,24,39,0.9)]
-                 backdrop-blur-2xl border border-[#6DDCFF]/20
-                 shadow-[0_0_25px_rgba(109,220,255,0.2)]
+                 backdrop-blur-2xl border border-slate-700/80
+                 shadow-[0_16px_34px_rgba(2,6,23,0.42)]
                  transition-all duration-300 ease-out transform origin-top
                  animate-[fadeSlide_0.25s_ease-out]"
     >
@@ -89,8 +89,8 @@ export function LanguageDropdown() {
             setIsOpen(false);
           }}
           className={`flex items-center space-x-2 w-full px-4 py-3 text-left text-[#E8ECF5]/90 transition-all duration-200
-            hover:bg-[rgba(109,220,255,0.08)] hover:text-[#6DDCFF]
-            ${language === lang.code ? 'bg-[rgba(109,220,255,0.05)]' : ''}
+            hover:bg-amber-200/10 hover:text-amber-100
+            ${language === lang.code ? 'bg-amber-200/10 text-amber-100' : ''}
             ${index !== languages.length - 1 ? 'border-b border-white/10' : ''}`}
         >
           <img src={lang.flag} alt={lang.name} className="w-6 h-4 object-cover rounded" />
@@ -106,25 +106,23 @@ export function LanguageDropdown() {
         onClick={toggleMenu}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
-        className="flex items-center space-x-2 px-4 py-2 rounded-full
-          backdrop-blur-xl border border-[#6DDCFF]/30
-          bg-[rgba(17,24,39,0.45)] text-white
-          shadow-[0_4px_25px_rgba(109,220,255,0.15)]
-          transition-all duration-300 hover:scale-105
-          hover:shadow-[0_0_20px_rgba(109,220,255,0.3)]"
+        className="flex h-9 items-center space-x-2 rounded-lg border border-slate-800
+          bg-slate-950/35 px-3 text-white backdrop-blur-xl
+          transition-colors duration-200 hover:border-amber-200/45
+          hover:bg-amber-200/10 hover:text-amber-100"
       >
         <img
           src={currentLanguage?.flag}
           alt={currentLanguage?.name}
-          className="w-6 h-4 object-cover rounded shadow-[0_0_8px_rgba(109,220,255,0.4)]"
+          className="h-4 w-6 rounded object-cover"
         />
-        <span className="text-sm font-medium text-[#E8ECF5]/90 tracking-wide">
+        <span className="text-sm font-semibold text-slate-100">
           {currentLanguage?.name}
         </span>
         {isOpen ? (
-          <ChevronUp className="w-4 h-4 text-[#6DDCFF]" />
+          <ChevronUp className="h-4 w-4 text-amber-200" />
         ) : (
-          <ChevronDown className="w-4 h-4 text-[#6DDCFF]" />
+          <ChevronDown className="h-4 w-4 text-amber-200" />
         )}
       </button>
 

@@ -7,9 +7,8 @@ export function Projects() {
   const projects = [
     {
       id: 'nda-project',
-      title: 'NDA Project',
-      shortDescription:
-        'Worked as a Senior Quality Assurance Engineer on a large-scale Electron desktop application. Responsible for functional, integration, regression, and exploratory testing, requirements analysis, defect investigation, release validation, simulator testing, and cross-platform verification across Ubuntu, Windows, and macOS.',
+      title: t('projects.nda.title'),
+      shortDescription: t('projects.nda.description'),
       tech: [
         'Electron',
         'Cross-platform',
@@ -25,8 +24,7 @@ export function Projects() {
     {
       id: 'blai',
       title: 'Blai',
-      shortDescription:
-        'Blai is an AI-powered mobile app that helps users manage crypto investments through smart insights, chat-based interactions, and automated portfolio tracking.',
+      shortDescription: t('projects.blai.description'),
       image: `${import.meta.env.BASE_URL}images/blai.png`,
       tech: ['API Testing', 'Mobile Testing', 'Swagger', 'iOS', 'Android'],
       link: 'https://play.google.com/store/apps/details?id=com.blai.app',
@@ -34,8 +32,7 @@ export function Projects() {
     {
       id: 'jmesworld',
       title: 'JMES World',
-      shortDescription:
-        'JMES World is a Web3 platform that enables creators and communities to collaborate, tokenize content, and participate in decentralized governance.',
+      shortDescription: t('projects.jmesworld.description'),
       image: `${import.meta.env.BASE_URL}images/JMES.jpg`,
       tech: ['API Testing', 'Web Testing', 'Blockchain', 'Postman', 'Java', 'Rest Assured'],
       link: 'https://app.jmesworld.com/login',
@@ -44,8 +41,7 @@ export function Projects() {
     {
       id: 'supabox',
       title: 'SupaBox',
-      shortDescription:
-        'SupaBox is a gamified e-commerce platform that lets users open digital mystery boxes and win real-world prizes.',
+      shortDescription: t('projects.supabox.description'),
       image: `${import.meta.env.BASE_URL}images/supabox.png`,
       tech: ['API Testing', 'PostgreSQL', 'Postman', 'Java', 'Rest Assured', 'Web Testing', 'Mobile Testing'],
       link: 'https://supabox.com/',
@@ -53,8 +49,7 @@ export function Projects() {
     {
       id: 'concedes',
       title: 'Concedes Digital Assets',
-      shortDescription:
-        'Concedes Digital Assets is a fintech web application that empowers users to trade cryptocurrencies seamlessly.',
+      shortDescription: t('projects.concedes.description'),
       image:
         `${import.meta.env.BASE_URL}images/CONCEDUS.webp`,
       tech: ['API Testing', 'PostgreSQL', 'Postman', 'MetaMask', 'Blockchain'],
@@ -63,8 +58,7 @@ export function Projects() {
     {
       id: 'coupler',
       title: 'Coupler.io',
-      shortDescription:
-        'A web application that synchronizes data between various services on a schedule, allowing users to monitor and manage metrics from Ads and marketplaces.',
+      shortDescription: t('projects.coupler.description'),
       image:
         `${import.meta.env.BASE_URL}images/coupler.png`,
       tech: ['API Testing', 'Data Integration', 'Mobile Testing', 'Google Cloud Console'],
@@ -73,8 +67,7 @@ export function Projects() {
     {
       id: 'nectar',
       title: 'Nectar Corp Network Solutions',
-      shortDescription:
-        'Software solutions improving management, visibility, and service delivery across VoIP, SIP and MPLS networks.',
+      shortDescription: t('projects.nectar.description'),
       image:
         `${import.meta.env.BASE_URL}images/nectar_services_logo.jpg`,
       tech: ['API Testing', 'PostgreSQL', 'OpenShift', 'VirtualBox', 'Linux', 'Microservices'],
@@ -83,8 +76,7 @@ export function Projects() {
     {
       id: 'cloud',
       title: 'Epam Cloud',
-      shortDescription:
-        'Multi-cloud orchestrator helping users manage AWS, GCP, and MS Azure from one unified interface.',
+      shortDescription: t('projects.cloud.description'),
       image:
         `${import.meta.env.BASE_URL}images/epam_cloud.jpg`,
       tech: ['CLI Testing', 'Cloud', 'AWS', 'GCP', 'Azure'],
@@ -95,7 +87,7 @@ export function Projects() {
   return (
     <section className="relative">
       <div className="relative z-10">
-        <div className="section-kicker">Selected product work</div>
+        <div className="section-kicker">{t('projects.kicker')}</div>
         <h2 className="section-title">{t('projects.title')}</h2>
 
         <div className="grid gap-4 md:grid-cols-2">
@@ -124,7 +116,7 @@ export function Projects() {
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-white">NDA</div>
-                      <div className="mt-1 text-xs text-slate-400">protected details</div>
+                      <div className="mt-1 text-xs text-slate-400">{t('projects.nda.details')}</div>
                     </div>
                   </div>
                 ) : (

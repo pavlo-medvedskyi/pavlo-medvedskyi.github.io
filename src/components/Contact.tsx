@@ -42,15 +42,15 @@ export function Contact() {
         trackEvent('contact_form_submit', { status: 'success' });
         trackFunnelStep('contact_form_submit', { status: 'success' });
         trackEvent('generate_lead', { method: 'contact_form' });
-        alert('Message sent successfully!');
+        alert(t('contact.alert.success'));
         setFormData({ name: '', email: '', message: '' });
       } else {
         trackEvent('contact_form_submit', { status: 'error' });
-        alert('Something went wrong. Please try again later.');
+        alert(t('contact.alert.error'));
       }
     } catch {
       trackEvent('contact_form_submit', { status: 'network_error' });
-      alert('Network error. Please check your connection.');
+      alert(t('contact.alert.network'));
     } finally {
       setLoading(false);
     }
@@ -59,7 +59,7 @@ export function Contact() {
   return (
     <section className="relative">
       <div className="relative z-10">
-        <div className="section-kicker">Next step</div>
+        <div className="section-kicker">{t('contact.kicker')}</div>
         <h2 className="section-title">{t('contact.title')}</h2>
 
         <div className="grid gap-5 md:grid-cols-[0.9fr_1.1fr]">
@@ -215,7 +215,7 @@ export function Contact() {
               {loading ? (
                 <>
                   <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  Sending...
+                  {t('contact.form.sending')}
                 </>
               ) : (
                 <>

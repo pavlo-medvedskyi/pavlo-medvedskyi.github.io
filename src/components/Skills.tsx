@@ -33,7 +33,7 @@ export function Skills() {
   return (
     <section className="relative">
       <div className="relative z-10">
-        <div className="section-kicker">Core strengths</div>
+        <div className="section-kicker">{t('skills.kicker')}</div>
         <h2 className="section-title">{t('skills.title')}</h2>
 
         <div className="grid gap-4 md:grid-cols-3">

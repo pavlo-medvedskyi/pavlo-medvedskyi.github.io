@@ -56,7 +56,6 @@ function App() {
         onToggleMenu={() => setIsMenuOpen((isOpen) => !isOpen)}
         onCloseMenu={() => setIsMenuOpen(false)}
         onOpenResume={openResume}
-        onScrollToTop={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         sections={sections}
         resumeLabel={t('nav.resume')}
       />

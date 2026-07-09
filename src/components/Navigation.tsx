@@ -12,7 +12,6 @@ interface NavigationProps {
   onToggleMenu: () => void;
   onCloseMenu: () => void;
   onOpenResume: (event: MouseEvent) => void;
-  onScrollToTop: () => void;
   sections: NavSection[];
   resumeLabel: string;
 }
@@ -22,24 +21,14 @@ export function Navigation({
   onToggleMenu,
   onCloseMenu,
   onOpenResume,
-  onScrollToTop,
   sections,
   resumeLabel,
 }: NavigationProps) {
   return (
     <nav className="fixed w-full z-50 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-xl animate-fade-blur" data-delay="1">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14">
-          <button
-            type="button"
-            onClick={onScrollToTop}
-            className="brand-name cursor-pointer hover:text-cyan-300 transition-colors bg-transparent border-0 p-0 mr-6 text-sm sm:text-base font-semibold text-white"
-            data-delay="1"
-          >
-            Pavlo Medvedskyi
-          </button>
-
-          <div className="hidden md:flex items-center gap-1">
+        <div className="flex h-14 items-center justify-end md:justify-between">
+          <div className="hidden min-w-0 items-center gap-1 md:flex">
             {sections.map((section, index) => (
               <a
                 key={section.id}
@@ -50,9 +39,11 @@ export function Navigation({
                 {section.label}
               </a>
             ))}
+          </div>
 
+          <div className="hidden items-center gap-2 md:flex">
             <button
-              className="ml-2 inline-flex h-9 shrink-0 items-center justify-center gap-1.5 rounded-lg bg-cyan-300 px-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-cyan-200"
+              className="inline-flex h-9 shrink-0 items-center justify-center gap-1.5 rounded-lg border border-cyan-300 bg-cyan-300 px-3 text-sm font-semibold text-slate-950 transition-colors hover:border-cyan-200 hover:bg-cyan-200"
               onClick={onOpenResume}
               aria-label={resumeLabel}
               title={resumeLabel}
@@ -61,19 +52,19 @@ export function Navigation({
               <span>CV</span>
             </button>
 
-            <div className="animate-fade-blur" data-delay="8">
+            <div className="animate-fade-blur" data-delay="9">
               <LanguageDropdown />
             </div>
           </div>
 
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="flex items-center gap-2 md:hidden">
             <LanguageDropdown />
             <button
               onClick={onToggleMenu}
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none transition-all duration-200"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-800 bg-slate-950/35 text-slate-300 transition-colors hover:border-amber-200/45 hover:bg-amber-200/10 hover:text-amber-100 focus:outline-none"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
@@ -94,7 +85,7 @@ export function Navigation({
             ))}
 
             <button
-              className="mt-2 flex items-center justify-center w-full px-4 py-2 rounded-lg text-base font-semibold text-slate-950 bg-cyan-300 hover:bg-cyan-200 transition-colors"
+              className="mt-3 flex h-10 w-full items-center justify-center rounded-lg border border-cyan-300 bg-cyan-300 px-4 text-base font-semibold text-slate-950 transition-colors hover:border-cyan-200 hover:bg-cyan-200"
               onClick={onOpenResume}
             >
               <Download className="w-4 h-4 mr-2" />

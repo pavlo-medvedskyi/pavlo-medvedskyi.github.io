@@ -6,13 +6,8 @@ export function GoToTop() {
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    const aboutSection = document.getElementById('about');
-
     const toggleVisibility = () => {
-      if (aboutSection) {
-        const aboutTop = aboutSection.offsetTop;
-        setIsVisible(window.scrollY >= aboutTop);
-      }
+      setIsVisible(window.scrollY > 240);
     };
 
     toggleVisibility();
@@ -31,28 +26,18 @@ export function GoToTop() {
     <button
       onClick={scrollToTop}
       aria-label="Go to top"
-      className={`go-top-btn fixed flex items-center justify-center 
-        text-white transition-all duration-500 ease-out
-        backdrop-blur-xl border border-[#6DDCFF]/40 
-        bg-[rgba(17,24,39,0.55)] shadow-[0_0_25px_rgba(109,220,255,0.25)]
-        hover:scale-110 hover:shadow-[0_0_40px_rgba(109,220,255,0.4)]
-        hover:border-[#6DDCFF]/70 hover:bg-[rgba(17,24,39,0.75)]
+      className={`go-top-btn fixed flex h-12 w-12 items-center justify-center rounded-lg
+        border border-slate-700 bg-slate-950/70 text-slate-200 shadow-xl backdrop-blur-xl
+        transition-all duration-300 ease-out hover:-translate-y-1 hover:border-amber-200/60
+        hover:bg-amber-200/10 hover:text-amber-100
         ${
           isVisible
-            ? 'opacity-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 translate-y-12 pointer-events-none'
+            ? 'translate-y-0 opacity-100 pointer-events-auto'
+            : 'translate-y-8 opacity-0 pointer-events-none'
         }`}
-      style={{
-        zIndex: 9999,
-        bottom: '2rem',
-        right: '2rem',
-        borderRadius: '9999px',
-        padding: '0.85rem',
-      }}
     >
       <div className="relative flex items-center justify-center">
-        <ArrowUp className="w-6 h-6 text-[#6DDCFF] drop-shadow-[0_0_10px_rgba(109,220,255,0.6)]" />
-        <div className="absolute inset-0 rounded-full blur-2xl opacity-20 bg-gradient-to-tr from-[#6DDCFF] to-[#A67DFF]" />
+        <ArrowUp className="h-5 w-5" />
       </div>
     </button>
   );

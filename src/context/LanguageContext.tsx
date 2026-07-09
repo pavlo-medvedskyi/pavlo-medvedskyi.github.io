@@ -21,12 +21,23 @@ const translations = {
     'nav.resume': 'Download CV',
 
     // Header Hero
+    'hero.location': 'Kharkiv, Ukraine - Europe/Kyiv',
     'hero.title': 'Senior Quality Assurance Engineer',
     'hero.description':
-      'Senior Quality Assurance Engineer with 8+ years of experience in desktop, web, API, and real-time systems testing. Experienced in functional, integration, regression, exploratory, and system testing. Strong background in requirements analysis, test design, SQL, API testing, databases, network protocols, Electron applications, Docker, Linux, and cross-platform validation.',
+      '8+ years of experience in desktop, web, API, and real-time systems testing. Experienced in functional, integration, regression, exploratory, and system testing, with a strong background in requirements analysis, test design, SQL, API testing, databases, network protocols, Electron applications, Docker, Linux, and cross-platform validation.',
     'hero.cta': 'Get in touch',
+    'hero.experienceCta': 'View experience',
+    'hero.highlights.list':
+      'API Testing, SQL & Databases, Desktop & Web, Electron & Linux, Real-time Systems, TCP/UDP & Logs',
+    'hero.proof.years.value': '8+ Years',
+    'hero.proof.years.label': 'Commercial QA Experience',
+    'hero.proof.platforms.value': 'Desktop / Web / API',
+    'hero.proof.platforms.label': 'Cross-platform Testing',
+    'hero.proof.systems.value': 'Electron / Linux / Docker',
+    'hero.proof.systems.label': 'Real-time Systems',
 
     // About
+    'about.kicker': 'Profile snapshot',
     'about.title': 'About Me',
     'about.description':
       'I enjoy working on technically challenging products where quality depends on understanding the system rather than only testing the UI. My experience includes desktop applications, web platforms, APIs, databases, real-time communication, and complex client-server architectures. I focus on understanding business logic, investigating defects, validating integrations, and improving overall product reliability throughout the software development lifecycle.',
@@ -38,6 +49,7 @@ const translations = {
     'about.stats.awards': 'Awards',
 
     // Tools
+    'tools.kicker': 'QA toolkit',
     'tools.title': 'Tools & Technologies',
     'tools.cat.api': 'API & Backend',
     'tools.cat.ui': 'UI / Automation',
@@ -49,6 +61,7 @@ const translations = {
     'tools.cat.docs': 'Documentation',
 
     // Skills
+    'skills.kicker': 'Core strengths',
     'skills.title': 'Skills',
     'skills.technologies': 'Technologies',
     'skills.testing.tools': 'Testing Tools',
@@ -56,8 +69,28 @@ const translations = {
 
     // Projects
     'projects.title': 'Projects',
+    'projects.kicker': 'Selected product work',
+    'projects.nda.details': 'protected details',
+    'projects.nda.title': 'NDA Project',
+    'projects.nda.description':
+      'Currently working as a Senior Quality Assurance Engineer on a large-scale Electron desktop application. Responsible for functional, integration, regression, and exploratory testing, requirements analysis, defect investigation, release validation, simulator testing, and cross-platform verification across Ubuntu, Windows, and macOS.',
+    'projects.blai.description':
+      'Blai is an AI-powered mobile app that helps users manage crypto investments through smart insights, chat-based interactions, and automated portfolio tracking.',
+    'projects.jmesworld.description':
+      'JMES World is a Web3 platform that enables creators and communities to collaborate, tokenize content, and participate in decentralized governance.',
+    'projects.supabox.description':
+      'SupaBox is a gamified e-commerce platform that lets users open digital mystery boxes and win real-world prizes.',
+    'projects.concedes.description':
+      'Concedes Digital Assets is a fintech web application that empowers users to trade cryptocurrencies seamlessly.',
+    'projects.coupler.description':
+      'A web application that synchronizes data between various services on a schedule, allowing users to monitor and manage metrics from Ads and marketplaces.',
+    'projects.nectar.description':
+      'Software solutions improving management, visibility, and service delivery across VoIP, SIP and MPLS networks.',
+    'projects.cloud.description':
+      'Multi-cloud orchestrator helping users manage AWS, GCP, and MS Azure from one unified interface.',
 
     // Open To Work
+    'openToWork.kicker': 'Hiring details',
     'openToWork.title': 'Open to Work',
     'openToWork.role.label': 'Desired Role',
     'openToWork.role.value': 'Senior Manual QA Engineer',
@@ -72,6 +105,7 @@ const translations = {
     'openToWork.recommendations.cta': 'LinkedIn Recommendations',
 
     // Contact
+    'contact.kicker': 'Next step',
     'contact.title': 'Get in Touch',
     'contact.description':
       "I'm always interested in hearing about new opportunities and challenges. Whether you have a question or just want to say hi, feel free to reach out!",
@@ -79,6 +113,10 @@ const translations = {
     'contact.form.email': 'Email',
     'contact.form.message': 'Message',
     'contact.form.send': 'Send Message',
+    'contact.form.sending': 'Sending...',
+    'contact.alert.success': 'Message sent successfully!',
+    'contact.alert.error': 'Something went wrong. Please try again later.',
+    'contact.alert.network': 'Network error. Please check your connection.',
     'contact.form.placeholder.name': 'Your full name',
     'contact.form.placeholder.email': 'your@email.com',
     'contact.form.placeholder.message': 'Write your message here...',
@@ -112,23 +150,35 @@ const translations = {
     'nav.resume': 'Завантажити CV',
 
     // Header Hero
+    'hero.location': 'Харків, Україна - Europe/Kyiv',
     'hero.title': 'Старший інженер із забезпечення якості',
     'hero.description':
-      'Senior Quality Assurance Engineer with 8+ years of experience in desktop, web, API, and real-time systems testing. Experienced in functional, integration, regression, exploratory, and system testing. Strong background in requirements analysis, test design, SQL, API testing, databases, network protocols, Electron applications, Docker, Linux, and cross-platform validation.',
+      '8+ років досвіду в тестуванні desktop, web, API та систем реального часу. Маю досвід функціонального, інтеграційного, регресійного, дослідницького та системного тестування, а також сильний технічний бекграунд в аналізі вимог, тест-дизайні, SQL, API testing, базах даних, мережевих протоколах, Electron-застосунках, Docker, Linux та кросплатформеній валідації.',
     'hero.cta': "Зв'язатися",
+    'hero.experienceCta': 'Переглянути досвід',
+    'hero.highlights.list':
+      'API Testing, SQL і бази даних, Desktop і Web, Electron і Linux, Системи реального часу, TCP/UDP і логи',
+    'hero.proof.years.value': '8+ років',
+    'hero.proof.years.label': 'Комерційного QA досвіду',
+    'hero.proof.platforms.value': 'Desktop / Web / API',
+    'hero.proof.platforms.label': 'Кросплатформене тестування',
+    'hero.proof.systems.value': 'Electron / Linux / Docker',
+    'hero.proof.systems.label': 'Системи реального часу',
 
     // About
+    'about.kicker': 'Профіль кандидата',
     'about.title': 'Про мене',
     'about.description':
-      'I enjoy working on technically challenging products where quality depends on understanding the system rather than only testing the UI. My experience includes desktop applications, web platforms, APIs, databases, real-time communication, and complex client-server architectures. I focus on understanding business logic, investigating defects, validating integrations, and improving overall product reliability throughout the software development lifecycle.',
+      'Мені цікаво працювати з технічно складними продуктами, де якість залежить не лише від перевірки інтерфейсу, а й від розуміння всієї системи. Мій досвід охоплює desktop-застосунки, web-платформи, API, бази даних, real-time комунікацію та складні client-server архітектури. Я зосереджуюся на розумінні бізнес-логіки, розслідуванні дефектів, валідації інтеграцій і підвищенні надійності продукту протягом усього життєвого циклу розробки.',
     'about.keywords.title': 'Ключова QA спеціалізація',
     'about.keywords.list':
-      'Requirements Analysis, API Testing, SQL, Database Validation, Regression Testing, Integration Testing, Electron, Docker, Linux, TCP/UDP, Log Analysis, Real-time Systems, Cross-platform Testing',
+      'Аналіз вимог, API Testing, SQL, Валідація баз даних, Регресійне тестування, Інтеграційне тестування, Electron, Docker, Linux, TCP/UDP, Аналіз логів, Системи реального часу, Кросплатформене тестування',
     'about.stats.projects': 'Завершених проєктів',
     'about.stats.experience': 'Років досвіду',
     'about.stats.awards': 'Нагород',
 
     // Tools
+    'tools.kicker': 'QA інструментарій',
     'tools.title': 'Інструменти та технології',
     'tools.cat.api': 'API та бекенд',
     'tools.cat.ui': 'UI / Автоматизація',
@@ -140,6 +190,7 @@ const translations = {
     'tools.cat.docs': 'Документація',
 
     // Skills
+    'skills.kicker': 'Сильні сторони',
     'skills.title': 'Навички',
     'skills.technologies': 'Технології',
     'skills.testing.tools': 'Інструменти тестування',
@@ -147,8 +198,28 @@ const translations = {
 
     // Projects
     'projects.title': 'Проєкти',
+    'projects.kicker': 'Практичний досвід',
+    'projects.nda.details': 'деталі захищені NDA',
+    'projects.nda.title': 'NDA проєкт',
+    'projects.nda.description':
+      'Працюю як старший інженер із забезпечення якості над масштабним desktop-застосунком на Electron. Відповідаю за функціональне, інтеграційне, регресійне та дослідницьке тестування, аналіз вимог, розслідування дефектів, перевірку релізів, тестування із симуляторами та кросплатформену валідацію на Ubuntu, Windows і macOS.',
+    'projects.blai.description':
+      'Blai — мобільний застосунок на базі AI, який допомагає користувачам керувати криптоінвестиціями за допомогою аналітичних підказок, чат-взаємодії та автоматизованого відстеження портфеля.',
+    'projects.jmesworld.description':
+      'JMES World — Web3-платформа для співпраці авторів і спільнот, токенізації контенту та участі в децентралізованому управлінні.',
+    'projects.supabox.description':
+      'SupaBox — гейміфікована e-commerce платформа, де користувачі відкривають цифрові mystery boxes і можуть вигравати реальні призи.',
+    'projects.concedes.description':
+      'Concedes Digital Assets — фінтех web-застосунок, який дає користувачам можливість зручно торгувати криптовалютами.',
+    'projects.coupler.description':
+      'Web-застосунок для синхронізації даних між різними сервісами за розкладом, щоб користувачі могли відстежувати й керувати метриками з реклами та маркетплейсів.',
+    'projects.nectar.description':
+      'Програмні рішення для покращення управління, видимості та якості сервісів у VoIP, SIP і MPLS мережах.',
+    'projects.cloud.description':
+      'Мультихмарний оркестратор, який допомагає керувати AWS, GCP та MS Azure з єдиного інтерфейсу.',
 
     // Open To Work
+    'openToWork.kicker': 'Деталі для найму',
     'openToWork.title': 'Відкритий до роботи',
     'openToWork.role.label': 'Бажана роль',
     'openToWork.role.value': 'Senior Manual QA Engineer',
@@ -163,6 +234,7 @@ const translations = {
     'openToWork.recommendations.cta': 'Рекомендації в LinkedIn',
 
     // Contact
+    'contact.kicker': 'Наступний крок',
     'contact.title': "Зв'язатися",
     'contact.description':
       'Я завжди відкритий до нових можливостей і викликів. Якщо у вас є питання або просто хочете привітатись — не соромтеся зв’язатися зі мною!',
@@ -170,6 +242,10 @@ const translations = {
     'contact.form.email': 'Електронна пошта',
     'contact.form.message': 'Повідомлення',
     'contact.form.send': 'Надіслати',
+    'contact.form.sending': 'Надсилання...',
+    'contact.alert.success': 'Повідомлення успішно надіслано!',
+    'contact.alert.error': 'Щось пішло не так. Спробуйте пізніше.',
+    'contact.alert.network': 'Помилка мережі. Перевірте підключення.',
     'contact.form.placeholder.name': "Ваше ім'я",
     'contact.form.placeholder.email': 'ваша@пошта.com',
     'contact.form.placeholder.message': 'Напишіть ваше повідомлення...',

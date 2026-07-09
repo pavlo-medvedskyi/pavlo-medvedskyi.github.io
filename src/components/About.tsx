@@ -17,7 +17,7 @@ export function About() {
   return (
     <section className="relative">
       <div className="relative z-10">
-        <div className="section-kicker">Profile snapshot</div>
+        <div className="section-kicker">{t('about.kicker')}</div>
         <h2 className="section-title">{t('about.title')}</h2>
 
         <div className="glass-panel p-6 md:p-8">
@@ -47,10 +47,10 @@ export function About() {
                 {stats.map(({ icon: Icon, label, value }) => (
                   <div
                     key={label}
-                    className="resume-chip flex items-start gap-3 rounded-lg p-3"
+                    className="resume-chip flex items-center gap-3 rounded-lg p-3 transition-colors hover:bg-amber-200/10"
                   >
-                    <div className="flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-cyan-300/10">
-                      <Icon className="h-4 w-4 text-cyan-300" />
+                    <div className="flex h-9 w-9 flex-none items-center justify-center rounded-lg border border-amber-200/20 bg-amber-200/10">
+                      <Icon className="h-4 w-4 text-amber-200" />
                     </div>
                     <div>
                       <div className="text-xl font-semibold leading-none text-white">
