@@ -42,21 +42,21 @@ export function About() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-slate-700/70 bg-slate-950/35 p-4">
-              <div className="grid grid-cols-3 gap-3 lg:grid-cols-1">
+            <div className="rounded-xl border border-slate-700/70 bg-slate-950/35 p-3 sm:p-4">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1">
                 {stats.map(({ icon: Icon, label, value }) => (
                   <div
                     key={label}
-                    className="resume-chip flex items-center gap-3 rounded-lg p-3 transition-colors hover:bg-amber-200/10"
+                    className="resume-chip flex min-h-20 items-center gap-3 rounded-lg p-3 transition-colors hover:bg-amber-200/10 sm:min-h-24 lg:min-h-0"
                   >
                     <div className="flex h-9 w-9 flex-none items-center justify-center rounded-lg border border-amber-200/20 bg-amber-200/10">
                       <Icon className="h-4 w-4 text-amber-200" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <div className="text-xl font-semibold leading-none text-white">
                         {value}
                       </div>
-                      <div className="mt-1 text-xs leading-4 text-slate-400">{label}</div>
+                      <div className="mt-1 text-sm leading-5 text-slate-400 sm:text-xs sm:leading-4">{label}</div>
                     </div>
                   </div>
                 ))}
