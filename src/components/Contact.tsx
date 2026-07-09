@@ -15,6 +15,7 @@ export function Contact() {
 
   const [showPhone, setShowPhone] = useState(false);
   const [showEmail, setShowEmail] = useState(false);
+  const [showTelegram, setShowTelegram] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -56,35 +57,32 @@ export function Contact() {
   };
 
   return (
-    <section className="relative py-24">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#6DDCFF]/10 via-transparent to-[#A67DFF]/10 blur-3xl pointer-events-none"></div>
-
+    <section className="relative">
       <div className="relative z-10">
-        <h2 className="text-4xl font-bold mb-12 gradient-text text-center md:text-left">
-          {t('contact.title')}
-        </h2>
+        <div className="section-kicker">Next step</div>
+        <h2 className="section-title">{t('contact.title')}</h2>
 
-        <div className="grid md:grid-cols-2 gap-16">
-          <div className="glass-panel p-8 rounded-3xl shadow-xl hover-bloom">
-            <p className="text-[#E8ECF5]/90 mb-10 leading-relaxed text-lg tracking-wide">
+        <div className="grid gap-5 md:grid-cols-[0.9fr_1.1fr]">
+          <div className="glass-panel p-6">
+            <p className="mb-6 text-base leading-7 text-slate-300">
               {t('contact.description')}
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               <button
                 type="button"
                 onClick={() => {
                   setShowPhone(true);
                   trackEvent('contact_click', { channel: 'phone', location: 'contact_section' });
                 }}
-                className="w-full flex items-center cursor-pointer text-left text-[#E8ECF5]/90 hover:text-[#6DDCFF] transition-all duration-200 bg-transparent border-0 p-0"
+                className="flex w-full cursor-pointer items-center rounded-lg border border-slate-800 bg-slate-900/40 p-3 text-left text-slate-200 transition-colors hover:border-cyan-300/40 hover:text-cyan-200"
               >
-                <div className="glass-halo w-12 h-12 flex items-center justify-center mr-4">
-                  <Phone className="w-6 h-6 text-[#6DDCFF]" />
+                <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-300/10">
+                  <Phone className="h-5 w-5 text-cyan-300" />
                 </div>
                 <div>
                   <div className="font-semibold">{t('contact.phone')}</div>
-                  <div className="text-[#E8ECF5]/70 select-none">
+                  <div className="select-none text-sm text-slate-400">
                     {showPhone ? '+38 (095) 0-555-314' : '+38 (095) ***-***'}
                   </div>
                 </div>
@@ -96,14 +94,14 @@ export function Contact() {
                   setShowEmail(true);
                   trackEvent('contact_click', { channel: 'email_reveal', location: 'contact_section' });
                 }}
-                className="w-full flex items-center cursor-pointer text-left text-[#E8ECF5]/90 hover:text-[#6DDCFF] transition-all duration-200 bg-transparent border-0 p-0"
+                className="flex w-full cursor-pointer items-center rounded-lg border border-slate-800 bg-slate-900/40 p-3 text-left text-slate-200 transition-colors hover:border-cyan-300/40 hover:text-cyan-200"
               >
-                <div className="glass-halo w-12 h-12 flex items-center justify-center mr-4">
-                  <Mail className="w-6 h-6 text-[#6DDCFF]" />
+                <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-300/10">
+                  <Mail className="h-5 w-5 text-cyan-300" />
                 </div>
                 <div>
                   <div className="font-semibold">{t('contact.email')}</div>
-                  <div className="text-[#E8ECF5]/70 select-none">
+                  <div className="select-none text-sm text-slate-400">
                     {showEmail ? 'Medvedskiypa@gmail.com' : 'M*********@gmail.com'}
                   </div>
                 </div>
@@ -113,44 +111,47 @@ export function Contact() {
                 href="https://www.linkedin.com/in/pavlo-medvedskyi-74231913b"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-[#E8ECF5]/90 hover:text-[#6DDCFF] transition-all duration-200"
+                className="flex items-center rounded-lg border border-slate-800 bg-slate-900/40 p-3 text-slate-200 transition-colors hover:border-cyan-300/40 hover:text-cyan-200"
                 onClick={() => trackEvent('social_click', { network: 'linkedin', location: 'contact_section' })}
               >
-                <div className="glass-halo w-12 h-12 flex items-center justify-center mr-4">
-                  <ExternalLink className="w-6 h-6 text-[#6DDCFF]" />
+                <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-300/10">
+                  <ExternalLink className="h-5 w-5 text-cyan-300" />
                 </div>
                 <div>
                   <div className="font-semibold">{t('contact.linkedin')}</div>
-                  <div className="text-[#E8ECF5]/70">Pavlo Medvedskyi</div>
+                  <div className="text-sm text-slate-400">Pavlo Medvedskyi</div>
                 </div>
               </a>
 
-              <a
-                href="https://t.me/Wisll"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-[#E8ECF5]/90 hover:text-[#6DDCFF] transition-all duration-200"
-                onClick={() => trackEvent('contact_click', { channel: 'telegram', location: 'contact_section' })}
+              <button
+                type="button"
+                onClick={() => {
+                  setShowTelegram(true);
+                  trackEvent('contact_click', { channel: 'telegram_reveal', location: 'contact_section' });
+                }}
+                className="flex items-center rounded-lg border border-slate-800 bg-slate-900/40 p-3 text-slate-200 transition-colors hover:border-cyan-300/40 hover:text-cyan-200"
               >
-                <div className="glass-halo w-12 h-12 flex items-center justify-center mr-4">
-                  <MessageSquare className="w-6 h-6 text-[#6DDCFF]" />
+                <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-300/10">
+                  <MessageSquare className="h-5 w-5 text-cyan-300" />
                 </div>
                 <div>
                   <div className="font-semibold">{t('contact.telegram')}</div>
-                  <div className="text-[#E8ECF5]/70">@Wisll</div>
+                  <div className="select-none text-sm text-slate-400">
+                    {showTelegram ? '@Wisll' : '@W****'}
+                  </div>
                 </div>
-              </a>
+              </button>
             </div>
           </div>
 
           <form
             onSubmit={handleSubmit}
-            className="glass-panel p-8 rounded-3xl shadow-xl space-y-6 hover-bloom"
+            className="glass-panel space-y-5 p-6"
           >
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-[#E8ECF5]/90 mb-2"
+                className="mb-2 block text-sm font-medium text-slate-200"
               >
                 {t('contact.form.name')}
               </label>
@@ -162,14 +163,14 @@ export function Contact() {
                 onChange={handleChange}
                 required
                 placeholder={t('contact.form.placeholder.name') || 'Your full name'}
-                className="w-full px-4 py-3 rounded-2xl bg-transparent border border-white/10 text-white placeholder-[#E8ECF5]/40 focus:outline-none focus:border-[#6DDCFF] backdrop-blur-md transition-all duration-200"
+                className="w-full px-4 py-3 text-white placeholder-slate-500"
               />
             </div>
 
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-[#E8ECF5]/90 mb-2"
+                className="mb-2 block text-sm font-medium text-slate-200"
               >
                 {t('contact.form.email')}
               </label>
@@ -181,14 +182,14 @@ export function Contact() {
                 onChange={handleChange}
                 required
                 placeholder={t('contact.form.placeholder.email') || 'your@email.com'}
-                className="w-full px-4 py-3 rounded-2xl bg-transparent border border-white/10 text-white placeholder-[#E8ECF5]/40 focus:outline-none focus:border-[#6DDCFF] backdrop-blur-md transition-all duration-200"
+                className="w-full px-4 py-3 text-white placeholder-slate-500"
               />
             </div>
 
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-[#E8ECF5]/90 mb-2"
+                className="mb-2 block text-sm font-medium text-slate-200"
               >
                 {t('contact.form.message')}
               </label>
@@ -200,14 +201,14 @@ export function Contact() {
                 required
                 rows={4}
                 placeholder={t('contact.form.placeholder.message') || 'Write your message here...'}
-                className="w-full px-4 py-3 rounded-2xl bg-transparent border border-white/10 text-white placeholder-[#E8ECF5]/40 focus:outline-none focus:border-[#6DDCFF] backdrop-blur-md transition-all duration-200"
+                className="w-full px-4 py-3 text-white placeholder-slate-500"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className={`w-full flex items-center justify-center px-6 py-3 rounded-full text-white liquid-glass-btn transition-all duration-200 ${
+              className={`liquid-glass-btn flex w-full items-center justify-center px-6 py-3 font-semibold transition-colors ${
                 loading ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >

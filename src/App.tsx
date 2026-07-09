@@ -50,7 +50,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen text-[#E8ECF5] overflow-x-hidden">
+    <div className="min-h-screen text-slate-100 overflow-x-hidden">
       <Navigation
         isMenuOpen={isMenuOpen}
         onToggleMenu={() => setIsMenuOpen((isOpen) => !isOpen)}
@@ -61,7 +61,7 @@ function App() {
         resumeLabel={t('nav.resume')}
       />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 space-y-24">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 space-y-10 md:space-y-14">
         <section id="header" className="reveal"><Header /></section>
         <section id="about" className="reveal"><Suspense fallback={null}><About /></Suspense></section>
         <section id="experience" className="reveal"><Suspense fallback={null}><Experience /></Suspense></section>

@@ -1,9 +1,27 @@
+import { LockKeyhole, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export function Projects() {
   const { t } = useLanguage();
 
   const projects = [
+    {
+      id: 'nda-project',
+      title: 'NDA Project',
+      shortDescription:
+        'Worked as a Senior Quality Assurance Engineer on a large-scale Electron desktop application. Responsible for functional, integration, regression, and exploratory testing, requirements analysis, defect investigation, release validation, simulator testing, and cross-platform verification across Ubuntu, Windows, and macOS.',
+      tech: [
+        'Electron',
+        'Cross-platform',
+        'Ubuntu',
+        'Windows',
+        'macOS',
+        'Desktop QA',
+        'Integration Testing',
+        'Regression Testing',
+      ],
+      confidential: true,
+    },
     {
       id: 'blai',
       title: 'Blai',
@@ -75,45 +93,64 @@ export function Projects() {
   ];
 
   return (
-    <section className="relative py-24">
-      {/* glowing gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#6DDCFF]/10 via-transparent to-[#A67DFF]/10 blur-3xl pointer-events-none"></div>
-
+    <section className="relative">
       <div className="relative z-10">
-        <h2 className="text-4xl font-bold mb-12 gradient-text text-center md:text-left">
-          {t('projects.title')}
-        </h2>
+        <div className="section-kicker">Selected product work</div>
+        <h2 className="section-title">{t('projects.title')}</h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projects.map((project) => (
-            <a
+        <div className="grid gap-4 md:grid-cols-2">
+          {projects.map((project) => {
+            const CardTag = project.confidential ? 'article' : 'a';
+
+            return (
+            <CardTag
               key={project.id}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-3xl bg-[rgba(17,24,39,0.45)] 
-                backdrop-blur-2xl border border-[#6DDCFF]/15 
-                shadow-[0_8px_32px_rgba(0,0,0,0.4)] 
-                transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(109,220,255,0.25)]"
+              {...(!project.confidential
+                ? {
+                    href: project.link,
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                  }
+                : {})}
+              className={`group glass-panel grid overflow-hidden md:grid-cols-[170px_1fr] ${
+                project.confidential ? 'cursor-default' : ''
+              }`}
             >
-              {/* image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-110 opacity-90"
-                  loading="lazy"
-                  decoding="async"
-                  width={600}
-                  height={340}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117]/90 via-[#0D1117]/30 to-transparent opacity-70 group-hover:opacity-60 transition-opacity"></div>
+              <div className="relative flex h-40 items-center justify-center overflow-hidden border-b border-slate-800 bg-slate-950/45 md:h-full md:border-b-0 md:border-r">
+                {project.confidential ? (
+                  <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-4 text-center">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-amber-200/30 bg-amber-200/10">
+                      <LockKeyhole className="h-7 w-7 text-amber-100" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-white">NDA</div>
+                      <div className="mt-1 text-xs text-slate-400">protected details</div>
+                    </div>
+                  </div>
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-contain p-4 opacity-95 transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    width={600}
+                    height={340}
+                  />
+                )}
               </div>
 
-              {/* content */}
-              <div className="p-6 md:p-8">
-                <h3 className="text-2xl font-semibold mb-3 gradient-text">{project.title}</h3>
-                <p className="text-[#E8ECF5]/80 mb-5 leading-relaxed">
+              <div className="p-5">
+                <div className="mb-2 flex items-center gap-2">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-cyan-300">{project.title}</h3>
+                  {project.confidential && (
+                    <span className="resume-chip inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-semibold text-amber-100">
+                      <ShieldCheck className="h-3 w-3 text-amber-200" />
+                      NDA
+                    </span>
+                  )}
+                </div>
+                <p className="mb-4 text-sm leading-6 text-slate-400">
                   {project.shortDescription}
                 </p>
 
@@ -121,20 +158,16 @@ export function Projects() {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 rounded-full text-sm text-[#E8ECF5]/80 
-                        bg-[rgba(255,255,255,0.06)] border border-[#6DDCFF]/20 
-                        backdrop-blur-md transition-all duration-200 hover:bg-[rgba(109,220,255,0.12)] hover:text-[#6DDCFF]"
+                      className="resume-chip rounded-md px-2 py-1 text-xs text-slate-300"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
               </div>
-
-              {/* subtle glow border */}
-              <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-[#6DDCFF]/40 transition-all duration-500"></div>
-            </a>
-          ))}
+            </CardTag>
+          );
+          })}
         </div>
       </div>
     </section>

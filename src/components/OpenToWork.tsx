@@ -29,33 +29,30 @@ export function OpenToWork() {
   ];
 
   return (
-    <section className="relative py-24">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#6DDCFF]/10 via-transparent to-[#A67DFF]/10 blur-3xl pointer-events-none"></div>
-
+    <section className="relative">
       <div className="relative z-10">
-        <h2 className="text-4xl font-bold mb-10 gradient-text text-center md:text-left">
-          {t('openToWork.title')}
-        </h2>
+        <div className="section-kicker">Hiring details</div>
+        <h2 className="section-title">{t('openToWork.title')}</h2>
 
-        <div className="glass-panel p-8 rounded-3xl hover-bloom">
-          <div className="grid md:grid-cols-2 gap-6">
+        <div className="glass-panel p-6">
+          <div className="grid gap-4 md:grid-cols-2">
             {items.map(({ icon: Icon, label, value }) => (
               <div
                 key={label}
-                className="rounded-2xl border border-white/10 bg-[rgba(17,24,39,0.4)] p-5"
+                className="resume-chip rounded-lg p-4"
               >
-                <div className="flex items-center mb-3">
-                  <Icon className="w-5 h-5 text-[#6DDCFF] mr-2" />
-                  <p className="text-sm text-[#E8ECF5]/70">{label}</p>
+                <div className="mb-2 flex items-center">
+                  <Icon className="mr-2 h-5 w-5 text-cyan-300" />
+                  <p className="text-sm text-slate-400">{label}</p>
                 </div>
-                <p className="text-base md:text-lg text-white font-medium">{value}</p>
+                <p className="text-base font-medium text-white">{value}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <p className="text-[#E8ECF5]/90">
-              <span className="text-[#6DDCFF] font-semibold">{t('openToWork.interview.label')}:</span>{' '}
+          <div className="mt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <p className="text-slate-300">
+              <span className="font-semibold text-cyan-300">{t('openToWork.interview.label')}:</span>{' '}
               {t('openToWork.interview.value')}
             </p>
 
@@ -63,7 +60,7 @@ export function OpenToWork() {
               href="https://www.linkedin.com/in/pavlo-medvedskyi-74231913b/details/recommendations/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-5 py-2 rounded-full liquid-glass-btn text-white text-sm font-medium"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-4 py-2 text-sm font-medium text-slate-100 hover:border-cyan-300/60 hover:text-cyan-200"
               onClick={() => trackEvent('social_click', { network: 'linkedin_recommendations', location: 'open_to_work' })}
             >
               <Star className="w-4 h-4 mr-2" />
@@ -75,4 +72,3 @@ export function OpenToWork() {
     </section>
   );
 }
-

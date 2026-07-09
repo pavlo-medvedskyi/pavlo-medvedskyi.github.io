@@ -114,27 +114,23 @@ export function Experience() {
   };
 
   return (
-    <section className="relative py-16 px-4 sm:px-8">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#6DDCFF]/10 via-transparent to-[#A67DFF]/10 blur-3xl pointer-events-none"></div>
+    <section className="relative">
+      <div className="relative z-10 w-full">
+        <div className="section-kicker">Career evidence</div>
+        <h2 className="section-title">{t('nav.experience')}</h2>
 
-      <div className="relative z-10 w-full max-w-3xl mx-auto">
-        <h2 className="text-4xl font-bold mb-10 gradient-text text-center md:text-left">
-          {t('nav.experience')}
-        </h2>
-
-        <div className="space-y-8">
+        <div className="space-y-4">
           {experiences.map((exp) => (
             <div
               key={exp.id}
-              className={`glass-panel rounded-3xl w-full overflow-hidden transition-all duration-500 hover-bloom ${
+              className={`glass-panel w-full overflow-hidden ${
                 expandedId === exp.id
-                  ? 'border-[#6DDCFF]/40 shadow-[0_0_25px_rgba(109,220,255,0.2)]'
+                  ? 'border-cyan-300/40'
                   : ''
               }`}
             >
-              {/* Header */}
               <div
-                className="p-6 sm:p-8 flex flex-col md:flex-row md:items-center md:justify-between cursor-pointer select-none"
+                className="flex cursor-pointer select-none flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between"
                 onClick={() => toggleExpand(exp.id)}
                 onKeyDown={(event) => {
                   if (event.key === 'Enter' || event.key === ' ') {
@@ -146,11 +142,11 @@ export function Experience() {
                 tabIndex={0}
                 aria-expanded={expandedId === exp.id}
               >
-                <div className="flex items-center gap-4 mb-4 md:mb-0">
+                <div className="flex items-center gap-4">
                   <img
                     src={exp.logo}
                     alt={exp.company}
-                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover glass-halo"
+                    className="h-11 w-11 rounded-lg border border-slate-700 object-cover"
                     loading="lazy"
                     decoding="async"
                     width={56}
@@ -161,43 +157,46 @@ export function Experience() {
                       href={exp.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xl sm:text-2xl font-semibold text-white hover:text-[#6DDCFF] transition-colors flex items-center gap-2"
+                      className="flex items-center gap-2 text-lg font-semibold text-white transition-colors hover:text-cyan-300"
                       onClick={(e) => e.stopPropagation()}
                     >
                       {exp.company}
-                      <ExternalLink className="w-4 h-4 text-[#6DDCFF]" />
+                      <ExternalLink className="h-4 w-4 text-cyan-300" />
                     </a>
-                    <h3 className="text-base sm:text-lg gradient-text">{exp.position}</h3>
+                    <h3 className="text-sm text-slate-300">{exp.position}</h3>
+                    {exp.period.includes('Present') && (
+                      <span className="mt-2 inline-flex rounded-full border border-amber-200/25 bg-amber-200/10 px-2 py-0.5 text-xs font-semibold text-amber-100">
+                        Current role
+                      </span>
+                    )}
                   </div>
                 </div>
 
-                <div className="flex items-center text-[#E8ECF5]/70 text-sm sm:text-base">
-                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-[#6DDCFF]" />
+                <div className="flex items-center text-sm text-slate-400">
+                  <Calendar className="mr-2 h-4 w-4 text-cyan-300" />
                   <span>{exp.period}</span>
                   {expandedId === exp.id ? (
-                    <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 ml-3 text-[#6DDCFF]" />
+                    <ChevronUp className="ml-3 h-4 w-4 text-cyan-300" />
                   ) : (
-                    <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 ml-3 text-[#6DDCFF]" />
+                    <ChevronDown className="ml-3 h-4 w-4 text-cyan-300" />
                   )}
                 </div>
               </div>
 
-              {/* Company description */}
-              <div className="px-6 sm:px-8 pb-3 text-[#E8ECF5]/70 italic text-sm sm:text-base leading-relaxed">
+              <div className="px-5 pb-4 text-sm leading-6 text-slate-400">
                 {t(exp.companyKey)}
               </div>
 
-              {/* Expanded content */}
               {expandedId === exp.id && (
-                <div className="px-6 sm:px-8 pb-8 pt-4 border-t border-white/10 backdrop-blur-sm">
-                  <h4 className="text-lg font-semibold gradient-text mb-4">
+                <div className="border-t border-slate-800 px-5 pb-6 pt-4">
+                  <h4 className="mb-3 text-sm font-semibold uppercase tracking-wide text-cyan-200">
                     Responsibilities:
                   </h4>
-                  <ul className="list-disc list-inside space-y-2 text-[#E8ECF5]/80 text-sm sm:text-base">
+                  <ul className="grid gap-2 text-sm text-slate-300 md:grid-cols-2">
                     {exp.responsibilities.map((responsibility, index) => (
                       <li
                         key={index}
-                        className="ml-2 transition-all duration-200 hover:text-[#6DDCFF]"
+                        className="flex gap-2 leading-6 before:mt-2 before:h-1.5 before:w-1.5 before:flex-none before:rounded-full before:bg-cyan-300"
                       >
                         {responsibility}
                       </li>

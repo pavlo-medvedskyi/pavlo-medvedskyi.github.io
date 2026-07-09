@@ -18,21 +18,21 @@ const translations = {
     'nav.projects': 'Projects',
     'nav.openToWork': 'Open to Work',
     'nav.contact': 'Contact',
-    'nav.resume': 'Resume',
+    'nav.resume': 'Download CV',
 
     // Header Hero
     'hero.title': 'Senior Quality Assurance Engineer',
     'hero.description':
-      'Senior Quality Assurance Engineer with 6+ years of experience in software testing. Delivering high-quality products through testing and leadership with strong skills in testing processes, knowledge sharing, and team management.',
+      'Senior Quality Assurance Engineer with 8+ years of experience in desktop, web, API, and real-time systems testing. Experienced in functional, integration, regression, exploratory, and system testing. Strong background in requirements analysis, test design, SQL, API testing, databases, network protocols, Electron applications, Docker, Linux, and cross-platform validation.',
     'hero.cta': 'Get in touch',
 
     // About
     'about.title': 'About Me',
     'about.description':
-      'I am a Senior Quality Assurance Engineer with over six years of experience in software testing. My expertise lies in ensuring product quality through rigorous testing processes, collaboration, and leadership. I have a strong foundation in testing methodologies, team mentoring, and effective communication with stakeholders.',
+      'I enjoy working on technically challenging products where quality depends on understanding the system rather than only testing the UI. My experience includes desktop applications, web platforms, APIs, databases, real-time communication, and complex client-server architectures. I focus on understanding business logic, investigating defects, validating integrations, and improving overall product reliability throughout the software development lifecycle.',
     'about.keywords.title': 'Core QA Focus',
     'about.keywords.list':
-      'Senior QA Engineer, Senior Manual QA Engineer, Manual QA, QA Engineer, Quality Assurance, Software Tester, API Testing, Regression Testing, Test Case Design',
+      'Requirements Analysis, API Testing, SQL, Database Validation, Regression Testing, Integration Testing, Electron, Docker, Linux, TCP/UDP, Log Analysis, Real-time Systems, Cross-platform Testing',
     'about.stats.projects': 'Projects Completed',
     'about.stats.experience': 'Years Experience',
     'about.stats.awards': 'Awards',
@@ -109,21 +109,21 @@ const translations = {
     'nav.projects': 'Проєкти',
     'nav.openToWork': 'Відкритий до роботи',
     'nav.contact': 'Контакти',
-    'nav.resume': 'Резюме',
+    'nav.resume': 'Завантажити CV',
 
     // Header Hero
     'hero.title': 'Старший інженер із забезпечення якості',
     'hero.description':
-      'Старший інженер із забезпечення якості з понад 6-річним досвідом у тестуванні програмного забезпечення. Забезпечую високу якість продуктів через тестування, лідерство та ефективну комунікацію в команді.',
+      'Senior Quality Assurance Engineer with 8+ years of experience in desktop, web, API, and real-time systems testing. Experienced in functional, integration, regression, exploratory, and system testing. Strong background in requirements analysis, test design, SQL, API testing, databases, network protocols, Electron applications, Docker, Linux, and cross-platform validation.',
     'hero.cta': "Зв'язатися",
 
     // About
     'about.title': 'Про мене',
     'about.description':
-      'Я старший інженер із забезпечення якості з більш ніж шестирічним досвідом у тестуванні програмного забезпечення. Моя експертиза полягає у забезпеченні якості продукту через ретельні процеси тестування, співпрацю та лідерство. Маю міцну основу в методологіях тестування, наставництві команди та ефективній комунікації із зацікавленими сторонами.',
+      'I enjoy working on technically challenging products where quality depends on understanding the system rather than only testing the UI. My experience includes desktop applications, web platforms, APIs, databases, real-time communication, and complex client-server architectures. I focus on understanding business logic, investigating defects, validating integrations, and improving overall product reliability throughout the software development lifecycle.',
     'about.keywords.title': 'Ключова QA спеціалізація',
     'about.keywords.list':
-      'Senior QA Engineer, Senior Manual QA Engineer, Manual QA, QA Engineer, Quality Assurance, Software Tester, API Testing, Regression Testing, Test Case Design',
+      'Requirements Analysis, API Testing, SQL, Database Validation, Regression Testing, Integration Testing, Electron, Docker, Linux, TCP/UDP, Log Analysis, Real-time Systems, Cross-platform Testing',
     'about.stats.projects': 'Завершених проєктів',
     'about.stats.experience': 'Років досвіду',
     'about.stats.awards': 'Нагород',

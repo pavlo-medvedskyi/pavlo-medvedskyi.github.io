@@ -9,57 +9,59 @@ export function About() {
     .filter(Boolean);
 
   const stats = [
-    { icon: Coffee, label: t('about.stats.projects'), value: '7' },
-    { icon: BookOpen, label: t('about.stats.experience'), value: '6+' },
+    { icon: Coffee, label: t('about.stats.projects'), value: '8' },
+    { icon: BookOpen, label: t('about.stats.experience'), value: '8+' },
     { icon: Award, label: t('about.stats.awards'), value: '5' },
   ];
 
   return (
-    <section className="py-24 relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#6DDCFF]/10 via-transparent to-[#A67DFF]/10 blur-3xl rounded-3xl pointer-events-none"></div>
-
+    <section className="relative">
       <div className="relative z-10">
-        <h2 className="text-4xl font-bold mb-12 gradient-text text-center md:text-left">
-          {t('about.title')}
-        </h2>
+        <div className="section-kicker">Profile snapshot</div>
+        <h2 className="section-title">{t('about.title')}</h2>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* === Left: Description === */}
-          <div className="glass-panel p-8 rounded-3xl shadow-xl hover-bloom">
-            <p className="text-[#E8ECF5]/90 leading-relaxed text-lg tracking-wide">
-              {t('about.description')}
-            </p>
-            <div className="mt-6">
-              <p className="text-sm text-[#E8ECF5]/70 mb-3">{t('about.keywords.title')}</p>
-              <div className="flex flex-wrap gap-2">
-                {qaKeywords.map((keyword) => (
-                  <span
-                    key={keyword}
-                    className="px-3 py-1 rounded-full text-xs text-[#E8ECF5]/80 bg-[rgba(255,255,255,0.06)] border border-[#6DDCFF]/20"
+        <div className="glass-panel p-6 md:p-8">
+          <div className="grid gap-7 lg:grid-cols-[1fr_320px] lg:items-start">
+            <div>
+              <p className="max-w-3xl text-base leading-8 text-slate-300">
+                {t('about.description')}
+              </p>
+
+              <div className="mt-6">
+                <p className="mb-3 text-sm font-medium text-slate-400">{t('about.keywords.title')}</p>
+                <div className="flex flex-wrap gap-2">
+                  {qaKeywords.map((keyword) => (
+                    <span
+                      key={keyword}
+                    className="resume-chip rounded-md px-2.5 py-1 text-xs text-slate-300"
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-slate-700/70 bg-slate-950/35 p-4">
+              <div className="grid grid-cols-3 gap-3 lg:grid-cols-1">
+                {stats.map(({ icon: Icon, label, value }) => (
+                  <div
+                    key={label}
+                    className="resume-chip flex items-start gap-3 rounded-lg p-3"
                   >
-                    {keyword}
-                  </span>
+                    <div className="flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-cyan-300/10">
+                      <Icon className="h-4 w-4 text-cyan-300" />
+                    </div>
+                    <div>
+                      <div className="text-xl font-semibold leading-none text-white">
+                        {value}
+                      </div>
+                      <div className="mt-1 text-xs leading-4 text-slate-400">{label}</div>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
-          </div>
-
-          {/* === Right: Stats === */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-            {stats.map(({ icon: Icon, label, value }) => (
-              <div
-                key={label}
-                className="flex flex-col items-center justify-center text-center rounded-3xl p-6 liquid-glass-btn hover-bloom"
-              >
-                <div className="glass-halo w-16 h-16 flex items-center justify-center mb-4">
-                  <Icon className="w-7 h-7 text-[#6DDCFF]" />
-                </div>
-                <div className="text-3xl font-semibold mb-2 text-white drop-shadow-[0_0_10px_rgba(109,220,255,0.3)]">
-                  {value}
-                </div>
-                <div className="text-sm text-[#E8ECF5]/70">{label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
