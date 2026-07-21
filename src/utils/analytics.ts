@@ -5,6 +5,8 @@ declare global {
     dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
     plausible?: (eventName: string, options?: { props?: Record<string, string> }) => void;
+    __gaBaseInitialized?: boolean;
+    __gaConfigSent?: boolean;
   }
 }
 
@@ -42,14 +44,21 @@ export function initAnalytics() {
       loadScript(gaScriptSrc);
     }
 
-    window.gtag('js', new Date());
-    window.gtag('config', GA_MEASUREMENT_ID, {
-      page_title: document.title,
-      page_location: window.location.href,
-      page_path: `${window.location.pathname}${window.location.search}`,
-      send_page_view: true,
-      transport_type: 'beacon',
-    });
+    if (!window.__gaBaseInitialized) {
+      window.gtag('js', new Date());
+      window.__gaBaseInitialized = true;
+    }
+
+    if (!window.__gaConfigSent) {
+      window.gtag('config', GA_MEASUREMENT_ID, {
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: `${window.location.pathname}${window.location.search}`,
+        send_page_view: true,
+        transport_type: 'beacon',
+      });
+      window.__gaConfigSent = true;
+    }
   }
 
   if (PLAUSIBLE_DOMAIN) {
