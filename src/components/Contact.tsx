@@ -224,6 +224,10 @@ export function Contact() {
                 </>
               )}
             </button>
+
+            <p className="text-xs leading-5 text-slate-500">
+              {t('contact.privacy.note')}
+            </p>
           </form>
         </div>
       </div>

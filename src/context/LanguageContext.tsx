@@ -52,7 +52,7 @@ const translations = {
     'tools.kicker': 'QA toolkit',
     'tools.title': 'Tools & Technologies',
     'tools.cat.api': 'API & Backend',
-    'tools.cat.ui': 'UI / Automation',
+    'tools.cat.ui': 'Desktop & Web QA',
     'tools.cat.db': 'Databases',
     'tools.cat.dev': 'Dev & IDE',
     'tools.cat.ci': 'CI/CD & Infrastructure',
@@ -71,9 +71,9 @@ const translations = {
     'projects.title': 'Projects',
     'projects.kicker': 'Selected product work',
     'projects.nda.details': 'protected details',
-    'projects.nda.title': 'NDA Project',
+    'projects.nda.title': 'NDA MilTech Project',
     'projects.nda.description':
-      'Currently working as a Senior Quality Assurance Engineer on a large-scale Electron desktop application. Responsible for functional, integration, regression, and exploratory testing, requirements analysis, defect investigation, release validation, simulator testing, and cross-platform verification across Ubuntu, Windows, and macOS.',
+      'Confidential MilTech desktop platform built as a large-scale Electron application. QA focus includes real-time workflows, ArduPilot/MAVLink integration context, real-time log analysis, Electron state/store validation, controlled environment behavior, regression coverage, and cross-platform verification across Ubuntu, Windows, and macOS.',
     'projects.blai.description':
       'Blai is an AI-powered mobile app that helps users manage crypto investments through smart insights, chat-based interactions, and automated portfolio tracking.',
     'projects.jmesworld.description':
@@ -93,7 +93,7 @@ const translations = {
     'openToWork.kicker': 'Hiring details',
     'openToWork.title': 'Open to Work',
     'openToWork.role.label': 'Desired Role',
-    'openToWork.role.value': 'Senior Manual QA Engineer',
+    'openToWork.role.value': 'Senior Quality Assurance Engineer',
     'openToWork.format.label': 'Work Format',
     'openToWork.format.value': 'Remote or Office',
     'openToWork.timezone.label': 'Timezone',
@@ -120,6 +120,8 @@ const translations = {
     'contact.form.placeholder.name': 'Your full name',
     'contact.form.placeholder.email': 'your@email.com',
     'contact.form.placeholder.message': 'Write your message here...',
+    'contact.privacy.note':
+      'Messages are processed through Formspree. Analytics tracks only anonymous technical interactions and never captures form content.',
     'contact.phone': 'Phone',
     'contact.email': 'Email',
     'contact.linkedin': 'LinkedIn',
@@ -127,7 +129,7 @@ const translations = {
 
     // Experience - Company Descriptions
     'experience.company.cody.desc':
-      'Cody Solutions is a Ukrainian IT company providing full-cycle software development and quality assurance services. The team focuses on building stable, scalable, and secure solutions across backend, API, desktop, and mobile platforms.',
+      'Current multi-project QA experience across a confidential NDA MilTech Electron desktop platform, mobile/API products, and web/API platforms, with focus on real-time workflows, integrations, traceability, release validation, and cross-platform reliability.',
     'experience.company.1648.desc':
       '1648 Factory is a German-based product and innovation company that helps global enterprises and startups build digital solutions from idea to market. The company provides full-cycle software development, UX/UI design, and startup acceleration services.',
     'experience.company.railsware.desc':
@@ -181,7 +183,7 @@ const translations = {
     'tools.kicker': 'QA інструментарій',
     'tools.title': 'Інструменти та технології',
     'tools.cat.api': 'API та бекенд',
-    'tools.cat.ui': 'UI / Автоматизація',
+    'tools.cat.ui': 'Desktop та Web QA',
     'tools.cat.db': 'Бази даних',
     'tools.cat.dev': 'Dev та IDE',
     'tools.cat.ci': 'CI/CD та інфраструктура',
@@ -200,9 +202,9 @@ const translations = {
     'projects.title': 'Проєкти',
     'projects.kicker': 'Практичний досвід',
     'projects.nda.details': 'деталі захищені NDA',
-    'projects.nda.title': 'NDA проєкт',
+    'projects.nda.title': 'NDA MilTech проєкт',
     'projects.nda.description':
-      'Працюю як старший інженер із забезпечення якості над масштабним desktop-застосунком на Electron. Відповідаю за функціональне, інтеграційне, регресійне та дослідницьке тестування, аналіз вимог, розслідування дефектів, перевірку релізів, тестування із симуляторами та кросплатформену валідацію на Ubuntu, Windows і macOS.',
+      'Конфіденційна MilTech desktop-платформа на базі масштабного Electron-застосунку. QA-фокус включає real-time workflows, контекст інтеграцій ArduPilot/MAVLink, аналіз real-time логів, валідацію Electron state/store, controlled environment behavior, регресійне покриття та кросплатформену перевірку на Ubuntu, Windows і macOS.',
     'projects.blai.description':
       'Blai — мобільний застосунок на базі AI, який допомагає користувачам керувати криптоінвестиціями за допомогою аналітичних підказок, чат-взаємодії та автоматизованого відстеження портфеля.',
     'projects.jmesworld.description':
@@ -222,7 +224,7 @@ const translations = {
     'openToWork.kicker': 'Деталі для найму',
     'openToWork.title': 'Відкритий до роботи',
     'openToWork.role.label': 'Бажана роль',
-    'openToWork.role.value': 'Senior Manual QA Engineer',
+    'openToWork.role.value': 'Senior Quality Assurance Engineer',
     'openToWork.format.label': 'Формат роботи',
     'openToWork.format.value': 'Віддалено або офіс',
     'openToWork.timezone.label': 'Часовий пояс',
@@ -256,7 +258,7 @@ const translations = {
 
     // Experience - Company Descriptions
     'experience.company.cody.desc':
-      'Cody Solutions — українська ІТ-компанія, що надає повний цикл послуг із розробки та тестування програмного забезпечення. Команда зосереджена на створенні стабільних, масштабованих і безпечних рішень для бекенду, API, десктопних і мобільних платформ.',
+      'Поточний multi-project QA досвід із конфіденційною NDA MilTech Electron desktop-платформою, mobile/API продуктами та web/API платформами з фокусом на real-time workflows, інтеграціях, traceability, release validation і кросплатформеній надійності.',
     'experience.company.1648.desc':
       '1648 Factory — німецька продуктова та інноваційна компанія, що допомагає стартапам і великим підприємствам створювати цифрові рішення від ідеї до запуску. Надає послуги повного циклу розробки, UX/UI дизайну та прискорення стартапів.',
     'experience.company.railsware.desc':
@@ -265,6 +267,8 @@ const translations = {
       'SoftServe — глобальна IT-компанія з офісом в Україні, яка надає послуги цифрової трансформації, хмарних технологій, AI/ML та розробки програмного забезпечення для клієнтів у США, Європі та Азії.',
     'experience.company.epam.desc':
       'EPAM Systems — одна з найбільших у світі компаній з розробки програмного забезпечення та IT-консалтингу. Надає повний цикл технологічних і дизайнерських послуг для корпоративних клієнтів у всьому світі.',
+    'contact.privacy.note':
+      'Повідомлення обробляються через Formspree. Аналітика відстежує лише анонімні технічні взаємодії та не зберігає вміст форми.',
   },
 };
 

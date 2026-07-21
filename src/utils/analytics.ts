@@ -7,6 +7,8 @@ declare global {
     plausible?: (eventName: string, options?: { props?: Record<string, string> }) => void;
     __gaBaseInitialized?: boolean;
     __gaConfigSent?: boolean;
+    __gaPageViewSent?: boolean;
+    __trackedSectionViews?: Set<string>;
   }
 }
 
@@ -14,6 +16,16 @@ const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-H166RLL0T
 const PLAUSIBLE_DOMAIN = import.meta.env.VITE_PLAUSIBLE_DOMAIN;
 const PAGE_TYPE = 'resume';
 let isAnalyticsInitialized = false;
+
+function getPageContext() {
+  return {
+    page_type: PAGE_TYPE,
+    page_title: document.title,
+    page_location: window.location.href,
+    page_path: `${window.location.pathname}${window.location.search}`,
+    language: document.documentElement.lang || 'en',
+  };
+}
 
 function loadScript(src: string, attrs: Record<string, string> = {}) {
   if (document.querySelector(`script[src="${src}"]`)) return;
@@ -51,13 +63,16 @@ export function initAnalytics() {
 
     if (!window.__gaConfigSent) {
       window.gtag('config', GA_MEASUREMENT_ID, {
-        page_title: document.title,
-        page_location: window.location.href,
-        page_path: `${window.location.pathname}${window.location.search}`,
-        send_page_view: true,
+        ...getPageContext(),
+        send_page_view: false,
         transport_type: 'beacon',
       });
       window.__gaConfigSent = true;
+    }
+
+    if (!window.__gaPageViewSent) {
+      trackPageView();
+      window.__gaPageViewSent = true;
     }
   }
 
@@ -66,13 +81,31 @@ export function initAnalytics() {
   }
 }
 
+export function trackPageView() {
+  if (typeof window === 'undefined') return;
+
+  const eventParams = {
+    ...getPageContext(),
+    send_to: GA_MEASUREMENT_ID,
+    transport_type: 'beacon',
+  };
+
+  if (window.gtag) {
+    window.gtag('event', 'page_view', eventParams);
+  }
+
+  if (window.plausible) {
+    const props = Object.fromEntries(Object.entries(eventParams).map(([k, v]) => [k, String(v)]));
+    window.plausible('pageview', { props });
+  }
+}
+
 export function trackEvent(eventName: string, params: Record<string, string | number | boolean> = {}) {
   if (typeof window === 'undefined') return;
 
   const eventParams = {
-    page_type: PAGE_TYPE,
-    page_path: `${window.location.pathname}${window.location.search}`,
-    language: document.documentElement.lang || 'en',
+    ...getPageContext(),
+    send_to: GA_MEASUREMENT_ID,
     transport_type: 'beacon',
     ...params,
   };

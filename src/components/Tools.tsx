@@ -10,7 +10,7 @@ export function Tools() {
     },
     {
       title: t('tools.cat.ui'),
-      items: ['Selenide', 'TestNG', 'Java'],
+      items: ['Electron', 'Desktop QA', 'Web UI Testing', 'Cross-platform QA'],
     },
     {
       title: t('tools.cat.db'),
